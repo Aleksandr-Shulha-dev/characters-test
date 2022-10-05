@@ -1,5 +1,6 @@
 import { Request, Response, Router } from "express";
 import { API } from '../common/enums';
+import { db } from "../database";
 
 const marvelСharacters = Router();
 
@@ -8,7 +9,7 @@ marvelСharacters.get(`${API.GETBYID}/:id`, (req: Request, res: Response) => {
 });
 
 marvelСharacters.get(`${API.GETALL}`, (req: Request, res: Response) => {
-  res.send("GETALL");
+  res.json(db.get('characters'));
 });
 
 marvelСharacters.post(`${API.CREATE}`, (req: Request, res: Response) => {
