@@ -1,0 +1,11 @@
+{
+  "name": "characters",
+  "version": "1.0.0",
+  "description": "marvel characters",
+  "scripts": {
+    "start:backend": "cd backend && npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
