@@ -7,7 +7,7 @@ import {
   CommonCharacterData,
   PaginationOptions,
   GetCharacterListResponse,
-  updateCharacterBody,
+  UpdateCharacterBody,
 } from '../../../shared/common/types';
 import { TypedRequestBody, TypedRequestQuery } from '../common/types';
 
@@ -20,7 +20,7 @@ const createNewCharacter = (
     const id = uuidv4();
     const character = { id, ...req.body };
     db.get('characters').push(character).write();
-    res.sendStatus(httpStatus.CREATED);
+    res.status(httpStatus.CREATED);
   } catch(error) {
     next(error);
   }
@@ -37,7 +37,7 @@ const getCharacterList = (
     const end = start + +take;
     const list = db.get('characters').slice(start, end).value();
     const count = db.get('characters').size().value();
-    res.sendStatus(httpStatus.OK).json({ list, count });
+    res.status(httpStatus.OK).json({ list, count });
   } catch(error) {
     next(error);
   }
@@ -51,7 +51,7 @@ const getCharacterById = (
   try {
     const { id } = req.params;
     const result = db.get('characters').find({ id }).value();
-    res.sendStatus(httpStatus.OK).json(result);
+    res.status(httpStatus.OK).json(result);
   } catch(error) {
     next(error);
   }
@@ -65,14 +65,14 @@ const deleteCharacter = (
   try {
     const { id } = req.params;
     db.get('characters').remove({ id });
-    res.sendStatus(httpStatus.OK);
+    res.status(httpStatus.OK);
   } catch(error) {
     next(error);
   }
 };
 
 const updateCharacter = (
-  req: TypedRequestBody<updateCharacterBody>,
+  req: TypedRequestBody<UpdateCharacterBody>,
   res: Response,
   next: NextFunction,
 ) => {
@@ -80,7 +80,7 @@ const updateCharacter = (
     const { id } = req.params;
     const body = req.body;
     db.get('characters').find({ id }).assign(body).write();
-    res.sendStatus(httpStatus.OK);
+    res.status(httpStatus.OK);
   } catch(error) {
     next(error);
   }

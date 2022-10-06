@@ -1,4 +1,5 @@
-import express, { Application, Request, Response } from 'express'
+import express, { Application, Request, Response } from 'express';
+import cors from 'cors';
 import { API } from './common/enums'
 import { marvelСharacters } from './routes'
 
@@ -6,7 +7,9 @@ const app: Application = express()
 
 const port: number = 3001;
 
-app.use(express.json());
+app
+    .use(cors({ origin: "*" }))
+    .use(express.json());
 
 app.use(`${API.BASE}`, marvelСharacters);
 

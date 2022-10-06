@@ -7,7 +7,7 @@ interface CreateNewCharacterBody {
   images: string[];
 }
 
-interface updateCharacterBody {
+interface UpdateCharacterBody {
   nickname?: string;
   real_name?: string;
   origin_description?: string;
@@ -35,5 +35,5 @@ export type {
   CommonCharacterData,
   PaginationOptions,
   GetCharacterListResponse,
-  updateCharacterBody,
+  UpdateCharacterBody,
 };
