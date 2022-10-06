@@ -4,6 +4,9 @@
   "description": "marvel characters",
   "scripts": {
     "start:backend": "cd backend && npm run dev",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "install:all": "npm run install:frontend && npm run install:backend",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
