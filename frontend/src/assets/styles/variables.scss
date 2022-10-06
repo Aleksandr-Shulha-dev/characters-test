@@ -1,0 +1,27 @@
+:root {
+  --blue100: #3765ff;
+  --blue200: rgb(4,24,88);
+  --blue300: rgb(7,20,64);
+  --gray100: #f1f4f6;
+  --gray200: #e4e8f2;
+  --gray300: #c9cfdd;
+  --gray400: #6a6c6d;
+  --gray500: #f8f8f8;
+  --black: #070a0c;
+  --white: #ffffff;
+  --white100: #fafafa;
+  --red: #e81414;
+  --green: #008000;
+  --primary-font: lato, sans-serif;
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+}
+
+$global-xs: 0;
+$global-sm: 600px;
+$global-md: 900px;
+$global-lg: 1200px;
+$global-xl: 1536px;
+$global-xxl: 1920px;
