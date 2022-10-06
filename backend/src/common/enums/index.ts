@@ -1,7 +1,7 @@
 enum API {
   BASE = '/api/v1',
   GETBYID = '/get',
-  GETALL = '/get-all',
+  GETLIST = '/get-list',
   CREATE = '/create',
   UPDATE = '/update',
   DELETE = '/delete',
