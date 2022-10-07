@@ -7,4 +7,11 @@ enum API {
   DELETE = '/delete',
 }
 
-export { API };
+enum AppRoute {
+  LiST = '/',
+  CHARACTER = '/character/:id',
+  EDIT_CHARACTER = '/edit/:id',
+  OTHER = '*',
+}
+
+export { API, AppRoute };
