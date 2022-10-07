@@ -1,7 +1,10 @@
-import express, { Application, Request, Response } from 'express';
+import express, { Application } from 'express';
+
 import cors from 'cors';
+import multer from 'multer';
 import { API } from './common/enums'
-import { marvelСharacters } from './routes'
+import { marvelСharacters } from './routes';
+
 
 const app: Application = express()
 
@@ -13,6 +16,7 @@ app
 
 app.use(`${API.BASE}`, marvelСharacters);
 
+
 app.listen(port, function () {
     console.log(`App is listening on port ${port} !`)
-})
+});
