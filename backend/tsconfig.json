@@ -10,5 +10,5 @@
     "allowJs": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
-  }                           
+  }                 
 }
