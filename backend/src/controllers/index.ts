@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { db } from '../database';
 import { v4 as uuidv4 } from 'uuid';
+import path from 'path';
 import httpStatus from 'http-status-codes';
 import {
   CreateNewCharacterBody,
@@ -86,10 +87,24 @@ const updateCharacter = (
   }
 }
 
+const getImage = (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { name } = req.params;
+    res.sendFile(`${path.join(__dirname, '../images', `${name}`)}`);
+  } catch(error) {
+    next(error);
+  }
+}
+
 export {
   createNewCharacter,
   getCharacterList,
   getCharacterById,
   deleteCharacter,
   updateCharacter,
+  getImage,
 }
