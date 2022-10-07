@@ -1,14 +1,14 @@
 import { FC } from 'react';
+import { useParams } from 'react-router-dom';
 import { Option } from '../common/option/option';
 import { useGetCharacterByIdQuery } from '../../store/query';
 import './styles.scss';
 import { Button } from '../common/button/button';
- 
+import { CharacterId } from '../../common/types';
+
 const CharacterPage: FC = () => {
-  const id = {
-    id: "0bb7f325-dee6-4c34-919b-d3ac5c87afc2",
-  };
-  const { data } = useGetCharacterByIdQuery(id);
+  const { id }  = useParams<CharacterId>();
+  const { data } = useGetCharacterByIdQuery({ id: id as string });
 
   return (
     <main className="character flex-row-middle">
