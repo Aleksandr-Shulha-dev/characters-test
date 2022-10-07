@@ -1,6 +1,6 @@
 import { UpdateCharacterBody } from "../../../../shared/common/types";
 
-interface CharacterId {
+type CharacterId = {
   id: string;
 }
 
