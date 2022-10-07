@@ -8,9 +8,9 @@ enum API {
 }
 
 enum AppRoute {
-  LiST = '/',
-  CHARACTER = '/character/:id',
-  EDIT_CHARACTER = '/edit/:id',
+  BASE = '/',
+  CHARACTER = '/character',
+  EDIT_CHARACTER = '/edit',
   OTHER = '*',
 }
 

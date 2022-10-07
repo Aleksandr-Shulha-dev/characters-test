@@ -18,28 +18,54 @@ html {
   letter-spacing: 0.5px;
 }
 
-%flex-row-center-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flex-row-middle {
-  @extend %flex-row-center-center;
-}
-
 body {
   width: 100%;
   height: 100vh;
-  @extend %flex-row-center-center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   padding: 0;
   background: rgb(0,0,0);
   background: linear-gradient(135deg, rgb(0,0,0) 0%, rgb(7,20,64) 70%, rgb(4,24,88) 100%);
 }
 
+a {
+  color: var(--white);
+  text-decoration: none;
+  transition: all ease 0.3s;
+
+  &:hover {
+    color: var(--white100);
+  } 
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 button {
   border: none;
+}
+
+.flex-row-middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .delete-btn {

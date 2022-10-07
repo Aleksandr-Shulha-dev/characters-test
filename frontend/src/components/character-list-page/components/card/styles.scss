@@ -1,0 +1,57 @@
+.card {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  text-align: center;
+  transition: all ease 0.3s;
+  cursor: pointer;
+  overflow: hidden;
+
+  &__img  {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  &__tools {
+    width: 80px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: -80px;
+    background-color: var(--white100);
+    border-radius: 0 0 0 10px;
+    transition: all ease 0.3s;
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+
+    & .card__tools {
+      right: 0;
+    }
+  }
+}
+
+.icon {
+  width: 30px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0);
+  transition: all ease 0.3s;
+
+  &:hover {
+    border: 1px solid var(--black);
+  }
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &:last-child {
+    width: 25px;
+  }
+}

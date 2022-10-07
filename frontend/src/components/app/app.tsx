@@ -12,10 +12,11 @@ const App: FC = () => {
     <div className='app'>
       <Header />
       <Routes>
-        <Route path={AppRoute.LiST} element={<CharacterList />}/>
-        <Route path={AppRoute.CHARACTER} element={<CharacterPage />}/>
-        <Route path={AppRoute.EDIT_CHARACTER} element={<EditPage />}/>
-        <Route path={AppRoute.OTHER} element={<Navigate to={AppRoute.LiST}/>}/>
+        <Route path={AppRoute.BASE} element={<Navigate to={`${AppRoute.BASE}1`}/>}/>
+        <Route path={`${AppRoute.BASE}/:id`} element={<CharacterList />}/>
+        <Route path={`${AppRoute.CHARACTER}/:id`} element={<CharacterPage />}/>
+        <Route path={`${AppRoute.EDIT_CHARACTER}/:id`} element={<EditPage />}/>
+        <Route path={AppRoute.OTHER} element={<Navigate to={`${AppRoute.BASE}1`}/>}/>
       </Routes>
     </div>
   );
