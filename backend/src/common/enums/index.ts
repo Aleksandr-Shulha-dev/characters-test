@@ -5,6 +5,7 @@ enum API {
   CREATE = '/create',
   UPDATE = '/update',
   DELETE = '/delete',
+  IMAGES = '/images'
 }
 
 export { API };

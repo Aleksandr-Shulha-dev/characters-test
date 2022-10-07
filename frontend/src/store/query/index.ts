@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { ApiProvider, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { API } from '../../common/enums';
 import {
   CharacterId,
@@ -42,6 +42,13 @@ export const characterApi = createApi({
         url: `${API.DELETE}/${id}`,
         method: 'DELETE',
       }) 
+    }),
+    addPhoto: builder.mutation<void, FormData>({
+      query: (data) => ({
+        url: "/test",
+        method: 'POST',
+        body: data
+      })
     })
   }),
 });
@@ -52,4 +59,5 @@ export const {
   useCreateCharacterMutation,
   useUpdateCharacterMutation,
   useDeleteCharacterMutation,
+  useAddPhotoMutation,
 } = characterApi;
