@@ -14,6 +14,7 @@ interface UpdateCharacterBody {
   superpowers?: string;
   catch_phrase?: string;
   images?: string[];
+  file: File | null;
 }
 
 interface CommonCharacterData extends CreateNewCharacterBody {

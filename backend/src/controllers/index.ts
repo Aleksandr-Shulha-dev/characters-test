@@ -85,14 +85,14 @@ const updateCharacter = (
 ) => {
   try {
     const { id } = req.params;
-    console.log(req.body);
-    // if(req.file) {
-    //   const images = [req.file.filename];
-    //   db.get('characters').find({ id }).assign({ images, ...body}).write();
-    // } else {
-    //   db.get('characters').find({ id }).assign(body).write();
-    // }
-    res.sendStatus(httpStatus.OK);
+    const { file, ...payload } = req.body
+    if(req.file) {
+      const images = [req.file.filename];
+      db.get('characters').find({ id }).assign({ images, ...payload}).write();
+    } else {
+      db.get('characters').find({ id }).assign(payload).write();
+    }
+    res.status(httpStatus.OK).json({ message: 'updated'});
   } catch(error) {
     next(error);
   }

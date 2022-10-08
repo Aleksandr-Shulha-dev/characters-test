@@ -87,6 +87,17 @@
       "images": [
         "1665249420695.webp"
       ]
-    }
+    },
+    {
+      "id": "6081ee2e-251c-42e2-a476-3b7dca34527f",
+      "nickname": "Black Widow",
+      "real_name": "Natasha Romanova",
+      "origin_description": "Black Widow (Natalia Alianovna \"Natasha\" Romanova; Russian: Наталья Альяновна \"Наташа\" Романова)[1] is a fictional character appearing in American comic books published by Marvel Comics.",
+      "superpowers": "Master martial artist and hand-to-hand combatant",
+      "catch_phrase": "Pain only makes us stronger",
+      "images": [
+        "1665252199473.jpg"
+      ]
+   }
   ]
 }
