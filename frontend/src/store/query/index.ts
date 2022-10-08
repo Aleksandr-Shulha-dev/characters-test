@@ -1,4 +1,4 @@
-import { ApiProvider, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { API } from '../../common/enums';
 import {
   CharacterId,
@@ -8,7 +8,6 @@ import {
   CommonCharacterData,
   GetCharacterListResponse,
   PaginationOptions,
-  CreateNewCharacterBody,
 } from '../../../../shared/common/types'
 
 export const characterApi = createApi({
@@ -16,32 +15,38 @@ export const characterApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: API.BASE,
   }),
+  tagTypes: ['Character'],
   endpoints: (builder) => ({
     getCharacterById: builder.query<CommonCharacterData, CharacterId>({
       query: ({ id }) => `${API.GETBYID}/${id}`,
+      providesTags: ['Character'],
     }),
     getCharacterList: builder.query<GetCharacterListResponse, PaginationOptions>({
       query: ({ take, skip }) => `${API.GETLIST}?take=${take}&skip=${skip}`,
+      providesTags: ['Character'],
     }),
-    createCharacter: builder.mutation<void, CreateNewCharacterBody>({
-      query: ({ ...body }) => ({
+    createCharacter: builder.mutation<CharacterId, FormData>({
+      query: (data) => ({
         url: `${API.CREATE}`,
         method: 'POST',
-        body,
-      })
+        body: data,
+      }),
+      invalidatesTags: ['Character'],
     }),
-    updateCharacter: builder.mutation<void, UpdateCharacterRequest>({
+    updateCharacter: builder.mutation<CharacterId, UpdateCharacterRequest>({
       query: ({ id, ...body }) => ({
         url: `${API.UPDATE}/${id}`,
         method: 'PATCH',
         body,
-      })
+      }),
+      invalidatesTags: ['Character'],
     }),
     deleteCharacter: builder.mutation<void, CharacterId>({
       query: ({ id }) => ({
         url: `${API.DELETE}/${id}`,
         method: 'DELETE',
-      }) 
+      }),
+      invalidatesTags: ['Character'], 
     }),
     addPhoto: builder.mutation<void, FormData>({
       query: (data) => ({
