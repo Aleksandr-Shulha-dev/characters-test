@@ -1,0 +1,13 @@
+.btn {
+  min-width: 130px;
+  padding: 15px 25px;
+  font-weight: var(--font-weight-bold);
+  transform: skewX(-10deg);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all ease 0.3s;
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+}

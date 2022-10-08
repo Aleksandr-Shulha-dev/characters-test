@@ -1,28 +1,28 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
+import { uploadMiddleware } from '../middlewares/middlewares';
 import { API } from '../common/enums';
+import {
+  createNewCharacter,
+  getCharacterList,
+  getCharacterById,
+  deleteCharacter,
+  updateCharacter,
+  getImage,
+} from "../controllers";
 
 const marvelСharacters = Router();
 
-marvelСharacters.get(`${API.GETBYID}/:id`, (req: Request, res: Response) => {
-  res.send("GETBYID");
-});
+marvelСharacters.get(`${API.GETBYID}/:id`, getCharacterById);
 
-marvelСharacters.get(`${API.GETALL}`, (req: Request, res: Response) => {
-  res.send("GETALL");
-});
+marvelСharacters.get(`${API.GETLIST}`, getCharacterList);
 
-marvelСharacters.post(`${API.CREATE}`, (req: Request, res: Response) => {
-  res.send("CREATE");
-});
+marvelСharacters.post(`${API.CREATE}`, uploadMiddleware, createNewCharacter);
 
-marvelСharacters.put(`${API.UPDATE}/:id`, (req: Request, res: Response) => {
-  res.send("UPDATE");
-});
+marvelСharacters.patch(`${API.UPDATE}/:id`, uploadMiddleware, updateCharacter);
 
-marvelСharacters.delete(`${API.DELETE}/:id`, (req: Request, res: Response) => {
-  res.send("DELETE");
-});
+marvelСharacters.delete(`${API.DELETE}/:id`, deleteCharacter);
 
+marvelСharacters.get(`${API.IMAGES}/:name`, getImage);
 
 
 export { marvelСharacters };

@@ -1,0 +1,13 @@
+.character-list {
+  width: 100%;
+  height: calc(100% - var(--header-height));
+  padding: 50px 20px;
+}
+
+.pagination {
+  display: flex;
+
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
+}

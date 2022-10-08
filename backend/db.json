@@ -1,0 +1,92 @@
+{
+  "characters": [
+    {
+      "id": "0bb7f325-dee6-4c34-919b-d3ac5c87afc2",
+      "nickname": "Superman",
+      "real_name": "Clark Kent",
+      "origin_description": "he was born Kal-El on the planet Krypton, before being rocketed to Earth as an infant by his scientist father Jor-El, moments before Krypton's destruction",
+      "superpowers": "solar energy absorption and healing factor, solar flare and heat vision, olar invulnerability, flight…",
+      "catch_phrase": "Look, up in the sky, it's a bird, it's a plane, it's Superman!",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/ru/thumb/6/68/Superman01.jpg/227px-Superman01.jpg"
+      ]
+    },
+    {
+      "id": "b5c6c0c8-f311-4218-b910-2d4c92ebeaae",
+      "nickname": "Batman",
+      "real_name": "Bruce Wayne",
+      "origin_description": "Batman is the superhero protector of Gotham City, a tortured, brooding vigilante dressed as a bat who fights against evil and strikes fear into the hearts of criminals everywhere. In his public identity, he is Bruce Wayne, a billionaire industrialist and notorious playboy.",
+      "superpowers": "money",
+      "catch_phrase": "I'm Batman",
+      "images": [
+        "https://static.wikia.nocookie.net/marvel_dc/images/4/4b/Batman_Vol_3_86_Textless.jpg"
+      ]
+    },
+    {
+      "id": "ecf21100-3b8b-42a6-9e59-c97268b05e48",
+      "nickname": "Joker",
+      "real_name": "-",
+      "origin_description": "The Joker is a supervillain and the archenemy of Batman",
+      "superpowers": "joke",
+      "catch_phrase": "It's all a joke! Everything anybody ever valued or struggled for... it's all a monstrous, demented gag! So why can't you see the funny side? Why aren't you laughing?",
+      "images": [
+        "https://static.posters.cz/image/1300/art-photo/joker-three-jokers-i121285.jpg"
+      ]
+    },
+    {
+      "id": "8af38db0-39e4-496b-b80b-14f393dfe015",
+      "nickname": "Spider-Man",
+      "real_name": "Peter Parker",
+      "origin_description": "The Joker is a supervillain and the archenemy of Batman",
+      "superpowers": "Superhuman strength, speed, reflexes, agility, coordination and balance",
+      "catch_phrase": "No matter what I do, no matter how hard I try, the ones I love will always be the ones who pay",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png"
+      ]
+    },
+    {
+      "id": "e25ea677-418d-42d6-aa6d-bdee67c5f9cb",
+      "nickname": "Iron Man",
+      "real_name": "Tony Stark",
+      "origin_description": "Iron Man is a superhero appearing in American comic books published by Marvel Comics. ",
+      "superpowers": "Genius level intellect, proficient scientist and engineer",
+      "catch_phrase": "Genius, billionaire, playboy, philanthropist",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/en/4/47/Iron_Man_%28circa_2018%29.png"
+      ]
+    },
+    {
+      "id": "41556cd9-b3d4-4f95-b647-312aee0878bd",
+      "nickname": "Hulk",
+      "real_name": "Bruce Banner",
+      "origin_description": "The Hulk is a superhero appearing in American comic books published by Marvel Comics. ",
+      "superpowers": "Superhuman strength, speed, stamina, and durability",
+      "catch_phrase": "Hulk!",
+      "images": [
+        "https://i.pinimg.com/originals/1a/82/ba/1a82ba18730298b8cd596dafde75a6c0.jpg"
+      ]
+    },
+    {
+      "id": "de3722dc-b8c6-4c05-bf4d-74c8e039f236",
+      "nickname": "Captain America",
+      "real_name": "Steve Rogers",
+      "origin_description": "Captain America is a superhero appearing in American comic books published by Marvel Comics",
+      "superpowers": "Enhanced strength, speed, stamina, durability, agility, reflexes, senses, and mental processing via the super soldier serum",
+      "catch_phrase": "Avengers Assemble!",
+      "images": [
+        "1665227362356.jpg"
+      ]
+    },
+    {
+      "id": "2f97e3e3-ccd2-4555-b516-4124e472d973",
+      "nickname": "Captain Marvel",
+      "real_name": "Carol Danvers",
+      "origin_description": "Custom description maybe",
+      "superpowers": "Enhanced strength, speed, stamina, durability, agility, reflexes, senses, and mental processing via the super soldier serum",
+      "catch_phrase": "Avengers Assemble!",
+      "images": [
+        "1665249420695.webp"
+      ]
+    }
+  ]
+}
