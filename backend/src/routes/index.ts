@@ -1,6 +1,5 @@
 import { Router } from "express";
-import path from 'path';
-import multer from "multer";
+import { uploadMiddleware } from '../middlewares/middlewares';
 import { API } from '../common/enums';
 import {
   createNewCharacter,
@@ -11,24 +10,13 @@ import {
   getImage,
 } from "../controllers";
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-      cb(null, 'src/images')
-  },
-  filename: (req, file, cb) => {
-      cb(null, Date.now() + path.extname(file.originalname))
-  }
-});
-
-const upload = multer({ storage });
-
 const marvelСharacters = Router();
 
 marvelСharacters.get(`${API.GETBYID}/:id`, getCharacterById);
 
 marvelСharacters.get(`${API.GETLIST}`, getCharacterList);
 
-marvelСharacters.post(`${API.CREATE}`, createNewCharacter);
+marvelСharacters.post(`${API.CREATE}`, uploadMiddleware, createNewCharacter);
 
 marvelСharacters.patch(`${API.UPDATE}/:id`, updateCharacter);
 
