@@ -40,7 +40,6 @@ const Form: FC<UpsertPageProps> = ({ isCreatePage, data }) => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { target } = event;
     if (target.files) {
-      if(imgPreview) return
       const file = target.files[0];
       setFormState(state => ({ ...state, file }));
     } else {
@@ -66,17 +65,6 @@ const Form: FC<UpsertPageProps> = ({ isCreatePage, data }) => {
     }
   }
 
-  // const handleUpdateSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   let data = new FormData();
-  //   if (formState.file) {
-  //     data = fillFormData(formState, data);
-  //     updateCharacter({ id: id as string, ...data})
-  //       .unwrap()
-  //       .then(() => navigate(`${AppRoute.CHARACTER}/${id}`));
-  //   }
-  // }
-
   return (
     <form 
       className="form flex-column-middle"
@@ -97,7 +85,7 @@ const Form: FC<UpsertPageProps> = ({ isCreatePage, data }) => {
               />
             </div>
           ) :
-          null
+          (<p className="error">you must add some image</p>)
         }
       </figure>
       <label className="file-input input-btn" htmlFor="file">choose file</label>
