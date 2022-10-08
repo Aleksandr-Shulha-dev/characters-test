@@ -9,5 +9,17 @@ interface TypedRequestQuery<T extends Query> extends Request {
   query: T;
 };
 
+interface CommonCharacterDataRequest {
+  nickname: string;
+  real_name: string;
+  origin_description: string;
+  superpowers: string;
+  catch_phrase: string;
+}
 
-export type { TypedRequestBody, TypedRequestQuery }
+
+export type {
+  TypedRequestBody,
+  TypedRequestQuery,
+  CommonCharacterDataRequest,
+}
