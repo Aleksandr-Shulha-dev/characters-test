@@ -1,3 +1,12 @@
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+
+const ENV = {
+  PORT: process.env.PORT,
+  URL: process.env.DEV_URL,
+}
+
 enum API {
   BASE = '/api/v1',
   GETBYID = '/get',
@@ -8,4 +17,6 @@ enum API {
   IMAGES = '/images'
 }
 
-export { API };
+
+
+export { API, ENV };

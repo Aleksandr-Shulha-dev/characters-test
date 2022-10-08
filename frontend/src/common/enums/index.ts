@@ -11,6 +11,7 @@ enum AppRoute {
   BASE = '/',
   CHARACTER = '/character',
   EDIT_CHARACTER = '/edit',
+  CREATE_CHARACTER='/create',
   OTHER = '*',
 }
 

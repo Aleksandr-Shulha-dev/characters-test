@@ -65,6 +65,28 @@
       "images": [
         "https://i.pinimg.com/originals/1a/82/ba/1a82ba18730298b8cd596dafde75a6c0.jpg"
       ]
+    },
+    {
+      "id": "de3722dc-b8c6-4c05-bf4d-74c8e039f236",
+      "nickname": "Captain America",
+      "real_name": "Steve Rogers",
+      "origin_description": "Captain America is a superhero appearing in American comic books published by Marvel Comics",
+      "superpowers": "Enhanced strength, speed, stamina, durability, agility, reflexes, senses, and mental processing via the super soldier serum",
+      "catch_phrase": "Avengers Assemble!",
+      "images": [
+        "1665227362356.jpg"
+      ]
+    },
+    {
+      "id": "2cc6f4ba-63ad-4c22-b311-0f85a312184b",
+      "nickname": "Captain Marvel",
+      "real_name": "Carol Danvers",
+      "origin_description": "Captain Marvel is the name of several fictional superheroes appearing in American comic books published by Marvel Comics. ",
+      "superpowers": "Enhanced strength, speed, stamina, durability, agility, reflexes, senses, and mental processing via the super soldier serum",
+      "catch_phrase": "Avengers Assemble!",
+      "images": [
+        "1665237940755.webp"
+      ]
     }
   ]
 }

@@ -2,26 +2,32 @@ import { Request, Response, NextFunction } from 'express';
 import { db } from '../database';
 import { v4 as uuidv4 } from 'uuid';
 import path from 'path';
+import { createImgUrl } from '../helper/helper';
 import httpStatus from 'http-status-codes';
 import {
-  CreateNewCharacterBody,
   CommonCharacterData,
   PaginationOptions,
   GetCharacterListResponse,
   UpdateCharacterBody,
 } from '../../../shared/common/types';
-import { TypedRequestBody, TypedRequestQuery } from '../common/types';
+import {
+  TypedRequestBody,
+  TypedRequestQuery,
+  CommonCharacterDataRequest,
+} from '../common/types';
 
 const createNewCharacter = (
-  req: TypedRequestBody<CreateNewCharacterBody>,
+  req: Request,
   res: Response,
   next: NextFunction,
 ) => {
   try {
     const id = uuidv4();
-    const character = { id, ...req.body };
+    console.log(req.files);
+    const images = req.file?.filename ? [req.file?.filename]: [];
+    const character = { id, ...req.body, images };
     db.get('characters').push(character).write();
-    res.status(httpStatus.CREATED);
+    res.status(httpStatus.CREATED).json({ id });
   } catch(error) {
     next(error);
   }
@@ -36,7 +42,8 @@ const getCharacterList = (
     const { skip, take } = req.query;
     const start = Number(skip);
     const end = start + +take;
-    const list = db.get('characters').slice(start, end).value();
+    let list = db.get('characters').slice(start, end).value();
+    list = createImgUrl(list);
     const count = db.get('characters').size().value();
     res.status(httpStatus.OK).json({ list, count });
   } catch(error) {
@@ -51,7 +58,8 @@ const getCharacterById = (
 ) => {
   try {
     const { id } = req.params;
-    const result = db.get('characters').find({ id }).value();
+    const character = db.get('characters').find({ id }).value();
+    const [ result ] = createImgUrl([ character ]);
     res.status(httpStatus.OK).json(result);
   } catch(error) {
     next(error);
