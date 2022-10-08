@@ -37,9 +37,8 @@ const CharacterList: FC = () => {
       <Grid data={data?.list as CommonCharacterData[]}/>
       <ul className="pagination">
         {[...Array(paginationListQuantity)].map((_, index) => (
-          <li className="pagination__item">
+          <li key={index} className="pagination__item">
             <NavLink
-              key={index} 
               to={`${AppRoute.BASE}${index + 1}`}
               className={({ isActive }) =>
                 isActive ? 'active-page' : undefined
