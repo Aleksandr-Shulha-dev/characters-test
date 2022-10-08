@@ -1,4 +1,4 @@
-import { UpdateCharacterBody } from "../../../../shared/common/types";
+import { UpdateCharacterBody, CommonCharacterData } from "../../../../shared/common/types";
 
 type CharacterId = {
   id: string;
@@ -10,6 +10,7 @@ interface UpdateCharacterRequest extends UpdateCharacterBody{
 
 interface UpsertPageProps {
   isCreatePage: boolean;
+  data?: CommonCharacterData;
 }
 
 interface InputTextState {

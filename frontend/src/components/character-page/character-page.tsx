@@ -1,14 +1,26 @@
 import { FC } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Option } from '../common/option/option';
-import { useGetCharacterByIdQuery } from '../../store/query';
+import { useDeleteCharacterMutation, useGetCharacterByIdQuery } from '../../store/query';
 import './styles.scss';
 import { Button } from '../common/button/button';
 import { CharacterId } from '../../common/types';
+import { AppRoute } from '../../common/enums';
 
 const CharacterPage: FC = () => {
+  const navigate = useNavigate()
   const { id }  = useParams<CharacterId>();
   const { data } = useGetCharacterByIdQuery({ id: id as string });
+  const [deleteCharacter] = useDeleteCharacterMutation()
+
+  const handleEditClick = () => {
+    navigate(`${AppRoute.EDIT_CHARACTER}/${id}`)
+  }
+
+  const handleDeleteClick = () => {
+    deleteCharacter({ id: id as string });
+    navigate(AppRoute.BASE);
+  }
 
   return (
     <main className="character flex-row-middle">
@@ -24,8 +36,8 @@ const CharacterPage: FC = () => {
         <Option data={data?.superpowers || ''} label="Superpowers"/>
         <Option data={data?.origin_description || ''} label="Description"/>
         <div className='btn-group flex-row-middle'>
-          <Button text="edit" clazz='edit-btn'/>
-          <Button text="delete" clazz='delete-btn'/>
+          <Button onClick={handleEditClick} text="edit" clazz='edit-btn' />
+          <Button onClick={handleDeleteClick} text="delete" clazz='delete-btn'/>
         </div>
       </div>
     </main>
