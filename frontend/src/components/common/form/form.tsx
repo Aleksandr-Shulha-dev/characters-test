@@ -1,24 +1,28 @@
-import React, { FC, useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { FC, useEffect, useState, useMemo } from 'react';
+import { useNavigate, useParams } from "react-router-dom";
+import { CommonCharacterData } from '../../../../../shared/common/types';
 import { AppRoute } from '../../../common/enums';
-import { FormState, PreviewState, UpsertPageProps } from '../../../common/types';
-import { fillFormData } from '../../../helper';
-import { useCreateCharacterMutation } from '../../../store/query';
+import { FormState, UpsertPageProps } from '../../../common/types';
+import { fillFormData, getInitialState } from '../../../helper';
+import { useCreateCharacterMutation, useUpdateCharacterMutation } from '../../../store/query';
+import { createInitialFormState } from './common/variables';
 import './styles.scss';
  
-const Form: FC<UpsertPageProps> = ({ isCreatePage }) => {
+const Form: FC<UpsertPageProps> = ({ isCreatePage, data }) => {
+  const initialFormState = useMemo(() => {
+    return getInitialState(
+      isCreatePage,
+      data as CommonCharacterData,
+      createInitialFormState
+    );
+  }, [isCreatePage, data]);
+  const initialPrevie = isCreatePage ? '' : data?.images[0] || '';
   const navigate = useNavigate();
-  const [ formState, setFormState ] = useState<FormState>({
-    nickname: '',
-    real_name: '',
-    origin_description: '',
-    superpowers: '',
-    catch_phrase: '',
-    file: null
-  });
-  const [ imgPreview, setImgPreview ] = useState<string>('');
-
+  const [ formState, setFormState ] = useState<FormState>(initialFormState);
+  const [ imgPreview, setImgPreview ] = useState<string>(initialPrevie);
+  const { id } = useParams();
   const [ createCharacter ] = useCreateCharacterMutation();
+  const [ updateCharacter ] = useUpdateCharacterMutation();
 
   useEffect(() => {
     if (formState.file) {
@@ -36,6 +40,7 @@ const Form: FC<UpsertPageProps> = ({ isCreatePage }) => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { target } = event;
     if (target.files) {
+      if(imgPreview) return
       const file = target.files[0];
       setFormState(state => ({ ...state, file }));
     } else {
@@ -46,13 +51,31 @@ const Form: FC<UpsertPageProps> = ({ isCreatePage }) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     let data = new FormData();
-    if (formState.file) {
+    if (formState.file || imgPreview) {
       data = fillFormData(formState, data);
-      createCharacter(data)
-        .unwrap()
-        .then(({ id }) => navigate(`${AppRoute.CHARACTER}/${id}`));
+      if(isCreatePage) {
+        createCharacter(data)
+          .unwrap()
+          .then(({ id }) => navigate(`${AppRoute.CHARACTER}/${id}`));
+      } else {
+        data.append('id', id as string);
+        updateCharacter(data)
+          .unwrap()
+          .then(() => navigate(`${AppRoute.CHARACTER}/${id}`));
+      }
     }
   }
+
+  // const handleUpdateSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   let data = new FormData();
+  //   if (formState.file) {
+  //     data = fillFormData(formState, data);
+  //     updateCharacter({ id: id as string, ...data})
+  //       .unwrap()
+  //       .then(() => navigate(`${AppRoute.CHARACTER}/${id}`));
+  //   }
+  // }
 
   return (
     <form 

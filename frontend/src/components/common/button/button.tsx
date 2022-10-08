@@ -4,11 +4,12 @@ import './styles.scss';
 interface ButtonProps {
   text: string;
   clazz: string;
+  onClick: () => void
 }
  
-const Button: FC<ButtonProps> = ({ text, clazz }) => {
+const Button: FC<ButtonProps> = ({ text, clazz, onClick }) => {
   return (
-    <button className={`btn ${clazz}`}>{text}</button>
+    <button onClick={onClick} className={`btn ${clazz}`}>{text}</button>
   );
 }
  

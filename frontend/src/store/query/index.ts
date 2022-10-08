@@ -33,11 +33,11 @@ export const characterApi = createApi({
       }),
       invalidatesTags: ['Character'],
     }),
-    updateCharacter: builder.mutation<CharacterId, UpdateCharacterRequest>({
-      query: ({ id, ...body }) => ({
-        url: `${API.UPDATE}/${id}`,
+    updateCharacter: builder.mutation<CharacterId, FormData>({
+      query: (data) => ({
+        url: `${API.UPDATE}/${data.get('id')}`,
         method: 'PATCH',
-        body,
+        body: data,
       }),
       invalidatesTags: ['Character'],
     }),

@@ -18,7 +18,7 @@ marvelСharacters.get(`${API.GETLIST}`, getCharacterList);
 
 marvelСharacters.post(`${API.CREATE}`, uploadMiddleware, createNewCharacter);
 
-marvelСharacters.patch(`${API.UPDATE}/:id`, updateCharacter);
+marvelСharacters.patch(`${API.UPDATE}/:id`, uploadMiddleware, updateCharacter);
 
 marvelСharacters.delete(`${API.DELETE}/:id`, deleteCharacter);
 

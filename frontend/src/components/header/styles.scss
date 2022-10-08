@@ -3,3 +3,24 @@
   height: var(--header-height);
   background-color: var(--white);
 }
+
+.navigation {
+  text-transform: uppercase;
+
+  & > a {
+    padding-left: 15px;
+    padding-right: 15px;
+    border:1px solid var(--black);
+    color: var(--black);
+
+    &:hover {
+      color: var(--black);
+    }
+  }
+
+  span {
+    color: var(--black);;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}

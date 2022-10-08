@@ -72,6 +72,12 @@ input[type="file"] {
   justify-content: center;
 }
 
+.active-page {
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid var(--white);
+}
+
 .delete-btn {
   background-color: var(--red);
   color: var(--white);

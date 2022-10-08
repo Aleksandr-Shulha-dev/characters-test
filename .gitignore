@@ -6,6 +6,5 @@ frontend/node_modules
 # production
 build
 
-# misc
-.env
+# misccom
 

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "marvel characters",
   "scripts": {
+    "start:frontend": "cd frontend && npm run start",
     "start:backend": "cd backend && npm run dev",
     "install:frontend": "cd frontend && npm install",
     "install:backend": "cd backend && npm install",

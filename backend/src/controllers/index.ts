@@ -13,7 +13,6 @@ import {
 import {
   TypedRequestBody,
   TypedRequestQuery,
-  CommonCharacterDataRequest,
 } from '../common/types';
 
 const createNewCharacter = (
@@ -23,7 +22,6 @@ const createNewCharacter = (
 ) => {
   try {
     const id = uuidv4();
-    console.log(req.files);
     const images = req.file?.filename ? [req.file?.filename]: [];
     const character = { id, ...req.body, images };
     db.get('characters').push(character).write();
@@ -73,8 +71,8 @@ const deleteCharacter = (
 ) => {
   try {
     const { id } = req.params;
-    db.get('characters').remove({ id });
-    res.status(httpStatus.OK);
+    db.get('characters').remove({ id }).write();
+    res.sendStatus(httpStatus.OK);
   } catch(error) {
     next(error);
   }
@@ -87,9 +85,14 @@ const updateCharacter = (
 ) => {
   try {
     const { id } = req.params;
-    const body = req.body;
-    db.get('characters').find({ id }).assign(body).write();
-    res.status(httpStatus.OK);
+    console.log(req.body);
+    // if(req.file) {
+    //   const images = [req.file.filename];
+    //   db.get('characters').find({ id }).assign({ images, ...body}).write();
+    // } else {
+    //   db.get('characters').find({ id }).assign(body).write();
+    // }
+    res.sendStatus(httpStatus.OK);
   } catch(error) {
     next(error);
   }
